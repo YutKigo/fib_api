@@ -6,8 +6,8 @@ app.use(express.json());
 
 app.get("/fib", (req, res) => {
 
-    // クエリパラメータを取得
-    const n = req.query.n;
+    // クエリパラメータを取得し10進数整数に変換
+    const n = parseInt(req.query.n, 10);
 
     // リクエストエラー処理（nが負またはnが非数）
     if(n <= 0 || isNaN(n)) {
