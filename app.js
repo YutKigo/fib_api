@@ -28,7 +28,6 @@ app.get("/fib", (req, res) => {
 })
 
 // 第n項のフィボナッチ数を求める関数
-/*
 function fibonacci(n) {
     if(n == 1) {
         return 1;
@@ -37,22 +36,7 @@ function fibonacci(n) {
     } else {
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
-}*/
-function fibonacci(n) {
-    if (n === 1 || n === 2) {
-        return 1; 
-    }
-    let f1 = 1;
-    let f2 = 1;
-    let f;
-    for (let i = 3; i <= n; i++) {
-        f = f1 + f2;
-        f1 = f2;
-        f2 = f;
-    }
-    return f2;
 }
-
 
 app.listen(port, () => {
     console.log(`App Listening at ${url}`);
