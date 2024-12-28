@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 let url = "http://localhost:3000";
 
-app.get("/", (req, res) => {
+app.get("/fib", (req, res) => {
 
     // クエリパラメータを取得
     const n = req.query.n;
