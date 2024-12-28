@@ -22,7 +22,7 @@ app.get("/fib", (req, res) => {
 
     // レスポンスをjson形式で返却
     res.json({
-        "result": result
+        "result": result.toString()
     });
 })
 
@@ -30,15 +30,15 @@ app.get("/fib", (req, res) => {
 const memo = {}
 function fibonacci(n) {
     // 第1, 2項は1
-    if(n === 1 || n === 2) {
-        return 1;
+    if(n === 1n || n === 2n) {
+        return 1n;
     }
     // memo内にあれば計算は不要
     if(n in memo) {
         return memo[n];
     }
     // memo内になければ漸化式で計算
-    memo[n] = fibonacci(n - 1) + fibonacci(n - 2);
+    memo[n] = fibonacci(n - 1n) + fibonacci(n - 2n);
     return memo[n];
 }
 /*
