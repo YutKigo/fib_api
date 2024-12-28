@@ -39,5 +39,5 @@ function fibonacci(n) {
 }
 
 app.listen(port, () => {
-    console.log(`App Listening at ${url}`);
+    console.log(`App Listening`);
 })
