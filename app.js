@@ -26,16 +26,31 @@ app.get("/fib", (req, res) => {
     });
 })
 
-// 第n項のフィボナッチ数を求める関数
+// 第n項のフィボナッチ数を求める関数（メモ化を使用）
+const memo = {}
 function fibonacci(n) {
-    if(n == 1) {
+    // 第1, 2項は1
+    if(n === 1 || n === 2) {
         return 1;
-    } else if(n == 2) {
+    }
+    // memo内にあれば計算は不要
+    if(n in memo) {
+        return memo[n];
+    }
+    // memo内になければ漸化式で計算
+    memo[n] = fibonacci(n - 1) + fibonacci(n - 2);
+    return memo[n];
+}
+/*
+function fibonacci(n) {
+    if(n === 1) {
+        return 1;
+    } else if(n === 2) {
         return 1;
     } else {
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
-}
+}*/
 
 app.listen(port, () => {
     console.log(`App Listening`);
