@@ -1,4 +1,3 @@
-// expressを使用
 const express = require('express');
 const app = express();
 
