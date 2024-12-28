@@ -7,7 +7,7 @@ app.use(express.json());
 app.get("/fib", (req, res) => {
 
     // クエリパラメータを取得し10進数整数に変換
-    const n = parseInt(req.query.n, 10);
+    const n = BigInt(req.query.n, 10);
 
     // リクエストエラー処理（nが負またはnが非数）
     if(n <= 0 || isNaN(n)) {
