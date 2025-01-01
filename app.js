@@ -42,6 +42,14 @@ function fibonacci(n) {
     return memo[n];
 }
 
+// テスト環境では listen を実行しない
+if (process.env.NODE_ENV !== 'test') {
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    });
+}
+
 /*
 app.listen(port, () => {
     console.log(`App Listening`);
