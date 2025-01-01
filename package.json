@@ -10,10 +10,19 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.21.2",
-    "supertest": "^7.0.0"
+    "express": "^4.21.2"
   },
   "devDependencies": {
-    "jest": "^29.7.0"
-  }
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YutKigo/fib_api.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/YutKigo/fib_api/issues"
+  },
+  "homepage": "https://github.com/YutKigo/fib_api#readme"
 }

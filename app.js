@@ -11,7 +11,7 @@ app.get("/fib", (req, res) => {
 
     // リクエストエラー処理（nが負またはnが非数）
     if(n <= 0 || isNaN(n)) {
-        return res.json({
+        res.status(400).json({
             "status": 400,
             "message": "Bad request."
         });
@@ -41,17 +41,10 @@ function fibonacci(n) {
     memo[n] = fibonacci(n - 1) + fibonacci(n - 2);
     return memo[n];
 }
-/*
-function fibonacci(n) {
-    if(n === 1) {
-        return 1;
-    } else if(n === 2) {
-        return 1;
-    } else {
-        return fibonacci(n - 1) + fibonacci(n - 2);
-    }
-}*/
 
+/*
 app.listen(port, () => {
     console.log(`App Listening`);
-})
+})*/
+
+module.exports = app;
