@@ -11,7 +11,7 @@ app.get("/fib", (req, res) => {
 
     // リクエストエラー処理（nが負またはnが非数）
     if(n <= 0 || isNaN(n)) {
-        res.status(400).json({
+        return res.status(400).json({
             "status": 400,
             "message": "Bad request."
         });
@@ -43,16 +43,11 @@ function fibonacci(n) {
 }
 
 // テスト環境では listen を実行しない
-if (process.env.NODE_ENV !== 'test') {
+if(process.env.NODE_ENV !== 'test') {
     const port = process.env.PORT || 3000;
     app.listen(port, () => {
         console.log(`Server running on port ${port}`);
     });
 }
-
-/*
-app.listen(port, () => {
-    console.log(`App Listening`);
-})*/
 
 module.exports = app;
