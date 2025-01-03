@@ -42,6 +42,20 @@ function fibonacci(n) {
     memo[n] = fibonacci(n - 1) + fibonacci(n - 2);
     return memo[n];
 }*/
+
+const memo = {};
+function fibonacci(n) {
+    if (n === 1 || n === 2) {
+        return BigInt(1);
+    }
+    if (n in memo) {
+        return memo[n];
+    }
+    memo[n] = fibonacci(n - 1) + fibonacci(n - 2);
+    return memo[n];
+}
+
+/*
 function fibonacci(n) {
     if (n === 1 || n === 2) {
         return BigInt(1);
@@ -52,7 +66,7 @@ function fibonacci(n) {
         [prev, curr] = [curr, prev + curr];
     }
     return curr;
-}
+}*/
 
 
 // テスト環境では listen を実行しない
