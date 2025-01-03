@@ -22,7 +22,7 @@ app.get("/fib", (req, res) => {
 
     // レスポンスをjson形式で返却
     res.json({
-        "result": result.toString();
+        "result": result.toString()
     });
 })
 
