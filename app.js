@@ -27,6 +27,7 @@ app.get("/fib", (req, res) => {
 })
 
 // 第n項のフィボナッチ数を求める関数（メモ化を使用）
+/*
 const memo = {}
 function fibonacci(n) {
     // 第1, 2項は1
@@ -40,7 +41,19 @@ function fibonacci(n) {
     // memo内になければ漸化式で計算
     memo[n] = fibonacci(n - 1) + fibonacci(n - 2);
     return memo[n];
+}*/
+function fibonacci(n) {
+    if (n === 1 || n === 2) {
+        return BigInt(1);
+    }
+    let prev = BigInt(1);
+    let curr = BigInt(1);
+    for (let i = 3; i <= n; i++) {
+        [prev, curr] = [curr, prev + curr];
+    }
+    return curr;
 }
+
 
 // テスト環境では listen を実行しない
 if(process.env.NODE_ENV !== 'test') {
