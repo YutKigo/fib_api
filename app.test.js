@@ -24,6 +24,13 @@ describe('fib_api', () => {
         expect(response.body).toEqual({ status: 400, message: 'Bad request.' });
     });
 
+    // 負数入力のテスト（n = -5）
+    it('GET invalid input: 0', async () => {
+        const response = await request(app).get('/fib').query({ n: -5 });
+        expect(response.statusCode).toBe(400);
+        expect(response.body).toEqual({ status: 400, message: 'Bad request.' });
+    });
+
     // 文字列入力のテスト（n = abc）
     it('GET invalid input: abc', async () => {
         const response = await request(app).get('/fib').query({ n: "abc" });
@@ -31,7 +38,7 @@ describe('fib_api', () => {
         expect(response.body).toEqual({ status: 400, message: 'Bad request.' });
     });
 
-    // 大きな入力のテスト（n = 1000）
+    // 大きな入力のテスト（n = 10000）
     it('GET huge input: 1000', async () => {
         const response = await request(app).get('/fib').query({ n: 1000 });
         expect(response.statusCode).toBe(200);
